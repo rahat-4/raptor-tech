@@ -28,11 +28,13 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DJANGO_DEBUG", default=False, cast=bool)
-
-# ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(",")
-ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", "").split(",")
-
+ALLOWED_HOSTS = [
+    "raptortech.biz",
+    "www.raptortech.biz",
+    "api.raptortech.biz",
+    "localhost",
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -100,6 +102,11 @@ TEMPLATES = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://api.raptortech.biz",
+    "https://raptortech.biz",
+    "https://www.raptortech.biz",
+]
 WSGI_APPLICATION = "raptor_tech_backend_v1.wsgi.application"
 CORS_ORIGIN_ALLOW_ALL = False  # Make it False for security
 CORS_ALLOWED_ORIGINS = [
@@ -110,6 +117,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://raptortech.biz",
+    "https://www.raptortech.biz",
+    "https://api.raptortech.biz",
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
