@@ -197,7 +197,7 @@ AUTH_USER_MODEL = "authentication.User"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Media files (Uploaded files)
-MEDIA_URL = "media/"  # Use the server's address or domain name
+MEDIA_URL = "/media/"  # Use the server's address or domain name
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
@@ -219,6 +219,7 @@ if DEBUG:
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_FILTER_BACKENDS": [

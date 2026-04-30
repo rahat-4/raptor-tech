@@ -44,7 +44,7 @@ services:
         condition: service_started
     environment:
       DJANGO_ENV: docker
-      DEBUG: 1
+      DJANGO_DEBUG: "True"
       DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
       POSTGRES_USER: ${POSTGRES_USER}
